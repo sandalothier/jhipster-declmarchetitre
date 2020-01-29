@@ -1,0 +1,42 @@
+enum TypeTitre {
+    ACTION, OBLIGATION, TITRE_NON_NEGOCIABLE, AUTRE_DROIT, ADP
+}
+/**
+ * Titre entity.
+ * @author sanda
+ *     relation
+ *       ManyToOne avec Titre
+ */
+entity Titre {
+    dateEmissionTitre Date
+    typeTitre TypeTitre
+    nombreTitreEmis Integer
+    montantTitreEmis Double
+    dateRemboursement Date
+}
+/**
+ * Titre entity.
+ * @author sanda
+ *     relation
+ *       ManyToOne avec Titre
+ */
+entity SocieteEmettrice {
+    nationale Boolean
+    nomSociete String
+}
+/**
+ * Titre entity.
+ * @author sanda
+ *     relation
+ *       ManyToOne avec Titre
+ */
+entity RembousementTitre {
+    montantRemboursementParTitre Double
+
+}
+relationship OneToMany {
+	SocieteEmettrice to Titre
+}
+relationship OneToMany {
+	Titre to RembousementTitre
+}
